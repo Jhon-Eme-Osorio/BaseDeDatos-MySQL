@@ -19,3 +19,6 @@ en null en base de datos no quiere decir que sea una cadena vacia o valor por de
 null es desconocido y hay que tener mucho cuidado con los valores null y evitarlos en la 
 medida de lo posible por que al evaluar una expresion donde halla un valor null
 toda la expresion se puede evaluar como null
+
+UQ (Unique) no puede haber mas de una pk en la tabla pero si varios uq
+ademas admite null en al menos una fila
