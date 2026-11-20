@@ -22,9 +22,18 @@ from country pais
 inner join countrylanguage  lang on pais.Code = lang.CountryCode
 where lang.IsOfficial = 'T';
 
+-- la mas optima de la consulta anterior
+
+select pais.Name, lang.Language, lang.IsOfficial
+from country pais
+inner join countrylanguage  lang on pais.Code = lang.CountryCode
+and lang.IsOfficial = 'T';
+
+
+
 -- recupere la ciudad mas poblada y el nombre del pais donde se encuentra dicha ciudad
 
-select c.Name, pais.Name
+select c.Name `ciudad`, pais.Name `pais`
 from country pais
 inner join city c on pais.Code = c.CountryCode
 order by c.Population desc
@@ -33,14 +42,14 @@ limit 1;
 select c.Name, pais.Name
 from city c
 inner join country pais on c.CountryCode = pais.Code
-where c.Population = (select max(c.Population) from city);
+where c.Population = (select max(Population) from city);
 -- modificar la consulta del ejercicio 1 para que solamente
 -- se muestran resultados para españa y todos los idiomas no solo oficiales
 
 select pais.Name, lang.Language, lang.IsOfficial
 from country pais
 inner join countrylanguage  lang on pais.Code = lang.CountryCode
-where pais.Code = 'ESP';
+and pais.Code = 'ESP';
 
 
 
